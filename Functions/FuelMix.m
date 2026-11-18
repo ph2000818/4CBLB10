@@ -11,9 +11,9 @@ function Fuel = FuelMix()
 %              [-]      [MJ/kg]  [kg/m3]  [-]     [-]     [-]     [-]
 % --- Fuels available in the lab (List of Available Fuels 4CBLB10)
 T = {
-    'B7',        1.0,   43.00,   836.1,   14.50,  0.858,  0.136,  0.006   % handbook Table 2.1
+    'B7',        0.5,   43.00,   836.1,   14.50,  0.858,  0.136,  0.006   % handbook Table 2.1
     'GTL',       0.0,   44.00,   777.1,   14.98,  0.847,  0.153,  0.000   % handbook Table 2.1
-    'HVO',       0.0,   44.00,   782.5,   14.93,  0.850,  0.150,  0.000   % LHV, rho: HVO SSA (KIT reFuels, rho 765-800); C/H/O: IEA-AMF; AFRst calculated
+    'HVO',       0.5,   44.00,   782.5,   14.93,  0.850,  0.150,  0.000   % LHV, rho: HVO SSA (KIT reFuels, rho 765-800); C/H/O: IEA-AMF; AFRst calculated
 % --- Not available in the lab (for comparison only)
     'GTLB30',    0.0,   42.00,   808.3,   14.24,  0.824,  0.143,  0.032   % handbook Table 2.1
     'FAME',      0.0,   38.27,   NaN,     12.59,  0.770,  0.122,  0.108   % LHV: FAME SSA (Tesfa, RME B100); C/H/O: methyl oleate C19H36O2; rho not found
