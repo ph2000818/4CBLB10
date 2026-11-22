@@ -60,6 +60,7 @@ line([CaIVC CaIVC],YLIM,'LineWidth',1,'Color','b'); % Plot a vertical line at IV
 line([CaEVO CaEVO],YLIM,'LineWidth',1,'Color','r'); % Plot a vertical line at EVO. Just for reference not a particular reason.
 set(gca,'XTick',[-360:60:360],'XGrid','on','YGrid','on');        % I like specific axis labels. Matter of taste
 title('All cycles in one plot.')
+
 %% pV-diagram
 V = CylinderVolume(Ca(:,iselect),Cyl);
 f2 = figure(2);
@@ -77,7 +78,11 @@ xlim([0.02 0.8]);ylim([0.5 50]);
 set(gca,'XTick',[0.02 0.05 0.1 0.2 0.5 0.8],...
     'YTick',[0.5 1 2 5 10 20 50],'XGrid','on','YGrid','on');        % I like specific axis labels. Matter of taste
 title('pV-diagram (log-log), cycle 10')
-
+%% CA-V diagram
+f3 = figure(3);
+plot(Ca(:,iselect), V/dm^3)
+xlabel('Crank Angle [deg]');ylabel('Volume [bar]');
+title('Crank angle vs. Volume');
 
 
 
@@ -253,9 +258,9 @@ if abs(AFRcalc - Fuel.AFRst) > 0.3
 end
 end
 function [SpS,El] = myload(filename,species)
-% This function allows us to easily extract data from files
+% This function allows us to easily extract data from Nasa files
 % filename : The name of the data file being loaded
-% species : 
+% species  : Values being extracted from the file
 load(filename);
 isp = myfind({Sp.Name},species);
 SpS = Sp(isp);
