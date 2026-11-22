@@ -19,7 +19,7 @@ s       = 1;
 % Global (for the Nasa database in case you wish to use it).
 global Runiv
 Runiv = 8.314;
-[SpS,El]        = myload(fullfile('data','NasaThermalDatabase.mat'),{'Diesel','O2','N2','CO2','H2O'});
+[SpS,El]        = myload(fullfile('Data','NasaThermalDatabase.mat'),{'Diesel','O2','N2','CO2','H2O'});
 %% Engine geom data (check if these are correct)
 Cyl.Bore                = 104*mm;
 Cyl.Stroke              = 85*mm;
