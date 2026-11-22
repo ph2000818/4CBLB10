@@ -43,11 +43,13 @@ dataIn          = table2array(readtable(FullName));
 NdatapointsperCycle = 720/0.2;                     % Nrows is a multitude of NdatapointsperCycle
 Ncycles         = Nrows/NdatapointsperCycle;       % This must be an integer. If not checkwhat is going on
 Ca              = reshape(dataIn(:,1),[],Ncycles); % Both p and Ca are now matrices of size (NCa,Ncycles)
+MeanCa          = mean(Ca,2);
 p               = reshape(dataIn(:,2),[],Ncycles)*bara; % type 'help reshape' in the command window if you want to know what it does (reshape is a Matlab buit-in command
+Meanp           = mean(p,2);
 %% Plotting 
 f1=figure(1);
 set(f1,'Position',[ 200 800 1200 400]);             % Just a size I like. Your choice
-pp = plot(Ca,p/bara,'LineWidth',1);                 % Plots the whole matrix
+pp = plot(MeanCa,Meanp/bara,'LineWidth',1);                 % Plots the whole matrix
 xlabel('Ca');ylabel('p [bar]');                     % Always add axis labels
 xlim([-360 360]);ylim([0 50]);                      % Matter of taste
 iselect = 10;                                    % Plot cycle 10 again in the same plot to emphasize it. Just to show how to access individual cycles.
